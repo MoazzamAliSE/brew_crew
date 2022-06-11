@@ -2,10 +2,9 @@ import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/services/database.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '';
+
 
 class SettingsForm extends StatefulWidget {
   const SettingsForm({Key? key}) : super(key: key);
@@ -35,11 +34,11 @@ class _SettingsFormState extends State<SettingsForm> {
               key: _formkey,
               child: Column(
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Update your brew Settings.',
                     style: TextStyle(fontSize: 18),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
@@ -51,7 +50,7 @@ class _SettingsFormState extends State<SettingsForm> {
                       _currentName = val;
                     }),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //dropdown
@@ -74,9 +73,9 @@ class _SettingsFormState extends State<SettingsForm> {
                   Slider(
                     value: (_currentStrength).toDouble(),
                     activeColor:
-                        Colors.brown[_currentStrength ?? userData!.strength],
+                        Colors.brown[_currentStrength],
                     inactiveColor:
-                        Colors.brown[_currentStrength ?? userData!.strength],
+                        Colors.brown[_currentStrength],
                     min: 100.0,
                     max: 900.0,
                     divisions: 8,
@@ -86,19 +85,20 @@ class _SettingsFormState extends State<SettingsForm> {
                   ),
                   //
                   ElevatedButton(
-                    child: Text('Update'),
+                    child: const Text('Update'),
                     onPressed: () async {
                       if (_formkey.currentState!.validate()) {
                         await DatabaseService(uid: user.uid).updateUserData(
-                            _currentSugars ?? userData.sugars,
-                            _currentName ?? userData.name,
-                            _currentStrength ?? userData.strength);
+                            _currentSugars,
+                            _currentName,
+                            _currentStrength);
+                        // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                       }
 
-                      print(_currentName);
-                      print(_currentSugars);
-                      print(_currentStrength);
+                      // print(_currentName);
+                      // print(_currentSugars);
+                      // print(_currentStrength);
                     },
                   ),
                 ],

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'package:brew_crew/models/user.dart';
 import 'package:brew_crew/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,7 +41,9 @@ class AuthService {
       return _userFromFirebase(user!);
 
       // return user;
+    // ignore: duplicate_ignore
     } catch (e) {
+      // ignore: avoid_print
       print(e.toString());
       return null;
     }

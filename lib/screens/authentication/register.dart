@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class Register extends StatefulWidget {
   // const Register({Key? key}) : super(key: key);
   final Function toggleView;
-  Register({required this.toggleView});
+   Register({required this.toggleView});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -36,11 +36,11 @@ class _RegisterState extends State<Register> {
         title: const Text('Sign up BREW CREW'),
         actions: <Widget>[
           FlatButton.icon(
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
             onPressed: () {
               widget.toggleView();
             },
-            label: Text('Register'),
+            label: const Text('Register'),
           ),
         ],
       ),
@@ -50,7 +50,7 @@ class _RegisterState extends State<Register> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: textInputDecoration.copyWith(hintText: 'Email'),
                 validator: (val) => val!.isEmpty ? 'Enter an email' : null,
@@ -58,7 +58,7 @@ class _RegisterState extends State<Register> {
                   setState(() => email = val);
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextFormField(
                 decoration: textInputDecoration.copyWith(hintText: 'Password'),
                 validator: (val) =>
@@ -68,11 +68,11 @@ class _RegisterState extends State<Register> {
                   setState(() => password = val);
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               ElevatedButton(
-                child: Text('Register '),
+                child: const Text('Register '),
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     setState(() {
@@ -88,11 +88,11 @@ class _RegisterState extends State<Register> {
                     }
                   }
 
-                  print(email);
-                  print(password);
+                  // print(email);
+                  // print(password);
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12.0,
               ),
               Text(

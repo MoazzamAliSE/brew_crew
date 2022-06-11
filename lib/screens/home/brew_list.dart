@@ -2,7 +2,6 @@ import 'package:brew_crew/models/brew.dart';
 import 'package:brew_crew/screens/home/brew_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BrewList extends StatefulWidget {
   const BrewList({Key? key}) : super(key: key);

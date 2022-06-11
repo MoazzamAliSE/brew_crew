@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print
+
 import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
@@ -33,11 +35,11 @@ class _SignInState extends State<SignIn> {
               title: const Text('Sign in to BREW CREW'),
               actions: <Widget>[
                 FlatButton.icon(
-                  icon: Icon(Icons.person),
+                  icon: const Icon(Icons.person),
                   onPressed: () {
                     widget.toggleView();
                   },
-                  label: Text('Sign In'),
+                  label: const Text('Sign In'),
                 ),
               ],
             ),
@@ -48,7 +50,7 @@ class _SignInState extends State<SignIn> {
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -60,7 +62,7 @@ class _SignInState extends State<SignIn> {
                         setState(() => email = val);
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     TextFormField(
@@ -74,11 +76,11 @@ class _SignInState extends State<SignIn> {
                         setState(() => password = val);
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
-                      child: Text('Sign in '),
+                      child: const Text('Sign in '),
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           setState(() {
@@ -96,16 +98,16 @@ class _SignInState extends State<SignIn> {
                           }
                         }
 
-                        print(email);
-                        print(password);
+                        // print(email);
+                        // print(password);
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 12.0,
                     ),
                     Text(
                       error,
-                      style: TextStyle(color: Colors.red, fontSize: 14.0),
+                      style: const TextStyle(color: Colors.red, fontSize: 14.0),
                     ),
                   ],
                 ),
