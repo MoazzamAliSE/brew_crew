@@ -9,10 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
+  var context;
+
   Home({Key? key}) : super(key: key);
   final AuthService _auth = AuthService();
 
-  get context => null;
+  
 
   void _showSettingsPanel() {
     showModalBottomSheet(
@@ -26,12 +28,11 @@ class Home extends StatelessWidget {
     );
   }
 
-  get initialData => null; //
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<List<Brew>>.value(
+    return StreamProvider<List<Brew>?>.value(
       value: DatabaseService(uid: '').brews,
-      initialData: initialData,
+      initialData: const [],
       child: Scaffold(
           backgroundColor: Colors.brown[50],
           appBar: AppBar(

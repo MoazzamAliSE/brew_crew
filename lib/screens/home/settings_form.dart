@@ -16,7 +16,7 @@ class SettingsForm extends StatefulWidget {
 class _SettingsFormState extends State<SettingsForm> {
   final _formkey = GlobalKey<FormState>();
   final List<String> sugars = ['0', '1', '2', '3', '4'];
-
+ final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900]; 
   //form values
   late String _currentName;
   late String _currentSugars;
@@ -24,9 +24,9 @@ class _SettingsFormState extends State<SettingsForm> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<Users>(context);
+    final user = Provider.of<Users?>(context);
     return StreamBuilder<UserData>(
-        stream: DatabaseService(uid: user.uid).userData,
+        stream: DatabaseService(uid: user!.uid).userData,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             UserData? userData = snapshot.data;
@@ -89,9 +89,9 @@ class _SettingsFormState extends State<SettingsForm> {
                     onPressed: () async {
                       if (_formkey.currentState!.validate()) {
                         await DatabaseService(uid: user.uid).updateUserData(
-                            _currentSugars,
-                            _currentName,
-                            _currentStrength);
+                            _currentSugars ?? snapshot.data!.sugars,
+                              _currentName ?? snapshot.data!.name,
+                              _currentStrength ?? snapshot.data!.strength);
                         // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                       }

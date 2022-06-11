@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "782436016346",
-    "project_id": "brew-crew-88e77",
-    "storage_bucket": "brew-crew-88e77.appspot.com"
+    "project_number": "55002707402",
+    "project_id": "brewcrew-32b51",
+    "storage_bucket": "brewcrew-32b51.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:782436016346:android:34feb3fc4dcd5b7a1305e3",
+        "mobilesdk_app_id": "1:55002707402:android:748464c191a9c3b3134b33",
         "android_client_info": {
-          "package_name": "com.moazzam.brew_crew"
+          "package_name": "com.example.brew_crew"
         }
       },
       "oauth_client": [
         {
-          "client_id": "782436016346-f11eu91r3sn9atebnbm8gn5av4ugim3f.apps.googleusercontent.com",
+          "client_id": "55002707402-mftr3ish5r34vvnp6j4ms42f4q3vp8ul.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brew_crew",
+            "certificate_hash": "ed71178ca450ebe03bf6faeaf5fd0c354cb38994"
+          }
+        },
+        {
+          "client_id": "55002707402-8eer4e38nuobguf7a4bqo7t9vgi6556n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDGJJKLV-B9AjaN7vstzRCNhFWeG-peVL8"
+          "current_key": "AIzaSyDecnn8U4ok-63PfTkt58TIC-oBeWQLRWg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "782436016346-f11eu91r3sn9atebnbm8gn5av4ugim3f.apps.googleusercontent.com",
+              "client_id": "55002707402-8eer4e38nuobguf7a4bqo7t9vgi6556n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
