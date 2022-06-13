@@ -1,10 +1,14 @@
-import 'package:brew_crew/models/brew.dart';
 import 'package:flutter/material.dart';
+
+import 'package:brew_crew/models/brew.dart';
 
 class BrewTile extends StatelessWidget {
   // const BrewTile({Key? key}) : super(key: key);
   final Brew brew;
-  BrewTile({required this.brew});
+  const BrewTile({
+    Key? key,
+    required this.brew,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

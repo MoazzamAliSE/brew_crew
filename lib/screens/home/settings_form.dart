@@ -5,7 +5,6 @@ import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class SettingsForm extends StatefulWidget {
   const SettingsForm({Key? key}) : super(key: key);
 
@@ -16,7 +15,7 @@ class SettingsForm extends StatefulWidget {
 class _SettingsFormState extends State<SettingsForm> {
   final _formkey = GlobalKey<FormState>();
   final List<String> sugars = ['0', '1', '2', '3', '4'];
- final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900]; 
+  final List<int> strengths = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   //form values
   late String _currentName;
   late String _currentSugars;
@@ -25,7 +24,7 @@ class _SettingsFormState extends State<SettingsForm> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<Users?>(context);
-    return StreamBuilder<UserData>(
+    return StreamBuilder<UserData?>(
         stream: DatabaseService(uid: user!.uid).userData,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -72,10 +71,8 @@ class _SettingsFormState extends State<SettingsForm> {
                   //slider
                   Slider(
                     value: (_currentStrength).toDouble(),
-                    activeColor:
-                        Colors.brown[_currentStrength],
-                    inactiveColor:
-                        Colors.brown[_currentStrength],
+                    activeColor: Colors.brown[_currentStrength],
+                    inactiveColor: Colors.brown[_currentStrength],
                     min: 100.0,
                     max: 900.0,
                     divisions: 8,
@@ -89,9 +86,9 @@ class _SettingsFormState extends State<SettingsForm> {
                     onPressed: () async {
                       if (_formkey.currentState!.validate()) {
                         await DatabaseService(uid: user.uid).updateUserData(
-                            _currentSugars ?? snapshot.data!.sugars,
-                              _currentName ?? snapshot.data!.name,
-                              _currentStrength ?? snapshot.data!.strength);
+                            _currentSugars,
+                            _currentName,
+                            _currentStrength);
                         // ignore: use_build_context_synchronously
                         Navigator.pop(context);
                       }
@@ -105,7 +102,7 @@ class _SettingsFormState extends State<SettingsForm> {
               ),
             );
           } else {
-            return Loading();
+            return const Loading();
           }
         });
   }

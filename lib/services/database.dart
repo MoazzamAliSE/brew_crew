@@ -17,12 +17,12 @@ class DatabaseService {
   }
 
 //get brews Stream
-  Stream<List<Brew>> get brews {
+  Stream<List<Brew>?> get brews {
     return brewCollection.snapshots().map(_brewListFromSnapshot);
   }
 
   //brew list from snapshot
-  List<Brew> _brewListFromSnapshot(QuerySnapshot snapshot) {
+  List<Brew>? _brewListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Brew(
           name: doc.get('name') ?? '',
@@ -41,7 +41,7 @@ class DatabaseService {
   //   }).toList();
   // }
  //get user doc stream
-  Stream<UserData> get userData {
+  Stream<UserData?> get userData {
     return brewCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
   //User data from snapshot

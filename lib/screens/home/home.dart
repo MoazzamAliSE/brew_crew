@@ -8,13 +8,17 @@ import 'package:brew_crew/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
-  var context;
+class Home extends StatefulWidget {
+  // var context;
 
   Home({Key? key}) : super(key: key);
-  final AuthService _auth = AuthService();
 
-  
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final AuthService _auth = AuthService();
 
   void _showSettingsPanel() {
     showModalBottomSheet(
